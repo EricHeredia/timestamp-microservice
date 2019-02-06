@@ -13,7 +13,9 @@ app.use(cors())
 
 
 app.get('/', (req, res) => {
-  res.render('index')
+  console.log(__dirname)
+  res.sendFile(__dirname + '/index.html')
+  //res.render('index`')
 })
 
 
