@@ -11,8 +11,15 @@ var app = module.exports = express()
 app.use(bodyParser.json())
 app.use(cors())
 
+
+app.get('/', (req, res) => {
+  res.send('index.html')
+})
+
+
+
 //GET call to return JSON that formats natural and unix dates
-app.get('/api/timestamp/:dateVal', (req, res, next) => {
+app.get('/api/timestamp/:dateVal', (req, res) => {
   //Gets request data for date
   var dateVal = req.params.dateVal
 
