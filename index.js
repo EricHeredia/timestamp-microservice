@@ -3,6 +3,9 @@ var express = require("express")
 var bodyParser = require("body-parser")
 var cors = require("cors")
 
+//Get port
+const port = process.env.PORT || 4000
+
 //Create an instance of express for app and instantiate bodyParser and cors
 var app = module.exports = express()
 app.use(bodyParser.json())
@@ -26,17 +29,6 @@ app.get('/api/timestamp/:dateVal', (req, res, next) => {
   res.json({unix: unixDate, utc: utcDate})
 })
 
-
-
-
-
-
-
-
-
-
-
-
-app.listen(3000, function() {
+app.listen(port, function() {
   console.log("Working")
 })
