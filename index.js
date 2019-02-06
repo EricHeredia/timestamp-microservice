@@ -13,7 +13,7 @@ app.use(cors())
 
 
 app.get('/', (req, res) => {
-  res.render('index.html')
+  res.render('index')
 })
 
 
