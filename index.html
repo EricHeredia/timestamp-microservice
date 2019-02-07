@@ -14,7 +14,7 @@
   <ol>
     <li>The API endpoint is <code>GET [project_url]/api/timestamp/:date_string?</code></li>
     </br>
-    <li>A date string is valid if can be successfully parsed by <code>new Date(date_string)</code>.
+    <li>A date string is valid if it can be successfully parsed by <code>new Date(date_string)</code>.
       Note that the unix timestamp needs to be an integer (not a string) specifying milliseconds.
       In our test we will use date strings compliant with ISO-8601 (e.g. "2016-11-20") because this will ensure a UTC timestamp.</li>
     </br>
