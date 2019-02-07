@@ -11,14 +11,15 @@ var app = module.exports = express()
 app.use(bodyParser.json())
 app.use(cors())
 
+//Set root
+app.use(express.static(__dirname))
 
-app.get('/', (req, res) => {
-  console.log(__dirname)
-  res.sendFile(__dirname + '/index.html')
-  //res.render('index`')
+//Get call empty, return current timestamp
+app.get('/api/timestamp/', (req, res) => {
+  let currentUtc = new Date().toUTCString()
+  let currentUnix = new Date(currentUtc).getTime()/1000
+  res.json({unix: currentUnix, utc: currentUtc})
 })
-
-
 
 //GET call to return JSON that formats natural and unix dates
 app.get('/api/timestamp/:dateVal', (req, res) => {
@@ -35,7 +36,11 @@ app.get('/api/timestamp/:dateVal', (req, res) => {
     utcDate = utcDate.toUTCString()
   }
 
-  res.json({unix: unixDate, utc: utcDate})
+  if (unixDate == "Invalid Date" || utcDate == "Invalid Date") {
+    res.json({error: "Invalid Date"})
+  } else {
+    res.json({unix: Number(unixDate), utc: utcDate})
+  }
 })
 
 app.listen(port, function() {

@@ -1,0 +1,19 @@
+body {
+  text-align: center;
+  width: 820px;
+  margin: auto;
+  background-color: #EEE;
+}
+
+ol {
+  text-align: left;
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 28px;
+}
+
+.links {
+  font-size: 20px;
+}
